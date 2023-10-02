@@ -38,7 +38,7 @@ const RentalPropertyChild = ({ property }: { property: Property }) => {
   const [selectedImage, setSelectedImage] = useState<SelectedImage>({});
 
   useEffect(() => {
-    fetch("http://localhost:8080/api/properties")
+    fetch(process.env.REACT_APP_API_URL + "/properties")
       .then((response) => response.json())
       .then((data: Property[]) => {
         const updatedData = data.map((property) => ({
